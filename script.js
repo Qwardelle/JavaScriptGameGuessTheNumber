@@ -49,13 +49,11 @@ function getInputValue() {
     question.innerHTML = secretNumber;
   } else if (inputVal > secretNumber) {
     score.innerHTML--; // -1 в количестве попыток
-    console.log(numberOfAtt); // Вывод числа попыток (?)
 
     messageAlert.innerHTML = "Загаданное число меньше вашего";
   } else {
     score.innerHTML--; //-1 в количестве попыток
     numberOfAtt++; // +1 в рекорде
-    console.log(numberOfAtt); // Вывод числа попыток (?)
     messageAlert.innerHTML = "Загаданное число больше вашего";
   }
 }
