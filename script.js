@@ -1,39 +1,65 @@
 "use strict";
 
 ///////////////////////////////////////
+let secretNumber;
+function secretNumberF() {
+  secretNumber = Math.ceil(Math.random() * 20); //Рандомное число
+  console.log(secretNumber); // вывод рандомного числа
+  return secretNumber;
+}
 
-let secretNumber = Math.round(Math.random() * 20);
-console.log(secretNumber);
+let question = document.querySelector(".number");
 
-let score = document.querySelector(".score");
+secretNumberF(); //запуск функции
+function resetGame() {
+  //запуск "Снова"
+  secretNumberF();
+  if (20 - score.innerHTML < recordNumber && gameWon == true) {
+    recordNumber = 21 - score.innerHTML;
+    numberOffAttString.innerHTML = recordNumber;
+    numberOfAtt = recordNumber;
+  }
+  score.innerHTML = 20;
+  gameWon = false;
+  question.innerHTML = "?";
+  buttonCheck.style.display = "block";
+}
+let gameWon = false;
+let recordNumber = 20;
 
-let messageAlert = document.querySelector(".message");
+let score = document.querySelector(".score"); //кол-во попыток
 
-let scoreFirstNumber = 20;
+let messageAlert = document.querySelector(".message"); // Текст над полем ввода
+
+let scoreFirstNumber = 20; // Попытки--
 score.innerHTML = scoreFirstNumber;
-let numberOfAtt = 0;
+let numberOfAtt = 0; // счетчик попыток
 
-let numberOffAttString = document.querySelector(".highscore");
+let buttonCheck = document.querySelector(".check");
 
+let numberOffAttString = document.querySelector(".highscore"); //Число в рекорде
+
+// Функция
 function getInputValue() {
   let inputVal = document.querySelector("input").value;
   if (inputVal == secretNumber) {
-    alert("Числа равны");
+    messageAlert.innerHTML = "Вы выиграли!";
+    gameWon = true;
+    buttonCheck.style.display = "none";
+    question.innerHTML = secretNumber;
   } else if (inputVal > secretNumber) {
-    score.innerHTML--;
-    numberOfAtt++;
-    numberOffAttString.innerHTML = numberOfAtt;
-    console.log(numberOfAtt);
+    score.innerHTML--; // -1 в количестве попыток
+    console.log(numberOfAtt); // Вывод числа попыток (?)
 
     messageAlert.innerHTML = "Загаданное число меньше вашего";
   } else {
-    score.innerHTML--;
-    numberOfAtt++;
-    numberOffAttString.innerHTML = numberOfAtt;
-    console.log(numberOfAtt);
+    score.innerHTML--; //-1 в количестве попыток
+    numberOfAtt++; // +1 в рекорде
+    console.log(numberOfAtt); // Вывод числа попыток (?)
     messageAlert.innerHTML = "Загаданное число больше вашего";
   }
 }
+//Функция
 
 /* 
 ЗАДАЧА: 
