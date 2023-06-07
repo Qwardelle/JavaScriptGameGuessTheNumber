@@ -52,6 +52,8 @@ function getInputValue() {
   } else if (score.innerHTML == 1) {
     messageAlert.innerHTML = "Вы проиграли :(";
     buttonCheck.style.display = "none";
+  } else if (inputVal < 1 || inputVal > 20) {
+    messageAlert.innerHTML = "Введите число от 1 до 20";
   } else if (inputVal > secretNumber) {
     score.innerHTML--; // -1 в количестве попыток
 
