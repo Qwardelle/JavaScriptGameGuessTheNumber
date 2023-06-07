@@ -102,7 +102,7 @@ h1 {
 .btn {
   border: none;
   border-radius: 1.2rem;
-  background-color: #eee;
+  background-color: #dedede;
   color: #222;
   font-size: 2rem;
   font-family: inherit;
@@ -111,7 +111,7 @@ h1 {
 }
 
 .btn:hover {
-  background-color: #ccc;
+  background-color: #cdcdcd;
 }
 
 .message {
