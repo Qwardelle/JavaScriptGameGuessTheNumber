@@ -21,6 +21,8 @@ function resetGame() {
   }
   score.innerHTML = 20;
   gameWon = false;
+  messageAlert.innerHTML = "Начните угадывать...";
+
   question.innerHTML = "?";
   buttonCheck.style.display = "block";
 }
@@ -47,6 +49,9 @@ function getInputValue() {
     gameWon = true;
     buttonCheck.style.display = "none";
     question.innerHTML = secretNumber;
+  } else if (score.innerHTML == 1) {
+    messageAlert.innerHTML = "Вы проиграли :(";
+    buttonCheck.style.display = "none";
   } else if (inputVal > secretNumber) {
     score.innerHTML--; // -1 в количестве попыток
 
